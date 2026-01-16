@@ -1,0 +1,21 @@
+// prisma/schema.prisma file ke andar
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Ye raha aapka naksha (Model)
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  likes     Int     @default(0)
+  userId    String
+  createdAt DateTime @default(now())
+  
+}
